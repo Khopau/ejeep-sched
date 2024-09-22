@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    height: 600px;
+}
+
+#info {
+    padding: 20px;
+}
