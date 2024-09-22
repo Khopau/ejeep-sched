@@ -1,0 +1,27 @@
+// Initialize the map
+const map = L.map('map').setView([10.3157, 123.8854], 13); // Use your desired coordinates
+
+// Load and display a tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+}).addTo(map);
+
+// Sample e-jeep data
+const eJeepData = [
+    { id: 1, name: 'E-Jeep 1', position: [10.3157, 123.8854], eta: '5 mins' },
+    { id: 2, name: 'E-Jeep 2', position: [10.3167, 123.8864], eta: '10 mins' },
+];
+
+// Add markers for each e-jeep
+eJeepData.forEach(jeep => {
+    const marker = L.marker(jeep.position).addTo(map);
+    marker.bindPopup(`${jeep.name}<br>ETA: ${jeep.eta}`);
+});
+
+// Function to update markers (you would update this with real-time data)
+function updateMarkers() {
+    // Logic to update positions
+}
+
+// Call updateMarkers periodically
+setInterval(updateMarkers, 60000); // Update every minute
